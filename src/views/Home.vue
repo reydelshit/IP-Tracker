@@ -44,9 +44,10 @@ export default {
 
     const getIp = async () => {
       try {
-        const data = await axios.get(`https://geo.ipify.org/api/v2/country?apiKey=at_XDkDoMWwKKxJoxxhSXdFhtsvajjBe&ipAddress=${queryIp.value}`)
+        const data = await axios.get(`https://geo.ipify.org/api/v2/country,city?apiKey=at_XDkDoMWwKKxJoxxhSXdFhtsvajjBe&ipAddress=${queryIp.value}`)
 
         const result = data.data
+        
         infoIp.value = {
           address: result.ip,
           location: result.location.region,
