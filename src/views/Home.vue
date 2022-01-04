@@ -1,14 +1,18 @@
 <template>
-  <div class="flex justify-center flex-col text-center">
-    <h1>IP Tracker</h1>
-    <div>
-    <input v-model="queryIp" class="border outline-none mr-4" type="text" placeholder="track ip">
-    <button @click="getIp" class="border-2 rounded-full">ok</button>
+  <div class="main">     
+    <div class="top__container">
+      <h1 class="main__tt">IP Tracker</h1>
+      <div class="yow">
+        <input v-model="queryIp" class="main__search" type="text" placeholder="track ip">
+        <button @click="getIp" class="main__search__btn"><i class="fas fa-search"></i></button>
+      </div>
+    
      <IPInfo v-if="infoIp" v-bind:infoIp="infoIp"/>
     </div>
    
-    <div id="map" class="h-96"></div>
-  </div>
+    <div id="map" class="main__map"></div>
+    </div>
+    
 </template>
 
 <script>
@@ -67,3 +71,77 @@ export default {
   }
 }
 </script>
+
+
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+.main {
+  height: 100vh;
+  
+}
+
+.top__container{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 15rem;
+  position: relative;
+}
+
+.yow{
+  margin-bottom: 2rem;
+}
+
+.top__container .main__tt{
+  font-size: 4rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  color: #22D3EE;
+}
+
+.main__search{
+  width: 30rem;
+  height: 3rem;
+  margin-right: 2rem;
+  border-radius: 5px;
+  padding: 0 2em;
+  outline: none;
+  border: 1px solid #22D3EE;
+}
+
+.main__search__btn {
+
+  border: 1px solid #22D3EE;
+  padding: 0.7rem 0.8rem;
+  border-radius: 10px;
+  color: #22D3EE;
+}
+
+.main__map{
+
+  height: 80%;
+  border: 1px solid #22D3EE;
+}
+
+@media screen and (max-width: 688px) {
+  .main__search{
+      width: 100%;
+  }
+
+  .yow{
+    display: flex;
+  }
+
+  .top__container .main__tt{
+    font-size: 3rem;
+  }
+
+  .main__map{
+    margin-top: 2rem;
+  }
+}
+
+</style>
